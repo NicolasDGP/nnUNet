@@ -1,4 +1,3 @@
-# nnunetv2/custom_nets/unet_resse.py
 from __future__ import annotations
 from typing import Any, Callable, List, Optional, Sequence, Tuple, Union
 import torch
