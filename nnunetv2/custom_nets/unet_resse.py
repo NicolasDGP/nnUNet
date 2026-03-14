@@ -5,6 +5,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from nnunetv2.custom_modules.res_se_block import ResidualSEBlock3D
 
+# Helpers
 
 def _softmax_helper(x: torch.Tensor) -> torch.Tensor:
     return torch.softmax(x, 1)
@@ -98,10 +99,12 @@ def _make_nonlin_factory(
     kwargs = {"inplace": True} if nonlin_kwargs is None else dict(nonlin_kwargs)
 
     def _factory() -> nn.Module:
-        return nonlin(**kwargs)  # type: ignore[misc]
+        return nonlin(**kwargs)  
 
     return _factory
 
+
+# Encoder
 
 class _EncoderStage(nn.Module):
     def __init__(
@@ -288,7 +291,7 @@ class UNetResSE3D(nn.Module):
         if not isinstance(kernel_sizes, (list, tuple)) or len(kernel_sizes) != self.n_stages:
             ks: List[Union[int, Sequence[int]]] = [kernel_sizes for _ in range(self.n_stages)]
         else:
-            ks = list(kernel_sizes)  # type: ignore[list-item]
+            ks = list(kernel_sizes) 
             if len(ks) != self.n_stages:
                 raise ValueError(f"kernel_sizes must have length {self.n_stages}, got {len(ks)}")
 
@@ -296,7 +299,7 @@ class UNetResSE3D(nn.Module):
         if not isinstance(strides, (list, tuple)) or len(strides) != self.n_stages:
             st: List[Union[int, Sequence[int]]] = [strides for _ in range(self.n_stages)]
         else:
-            st = list(strides)  # type: ignore[list-item]
+            st = list(strides) 
             if len(st) != self.n_stages:
                 raise ValueError(f"strides must have length {self.n_stages}, got {len(st)}")
 
