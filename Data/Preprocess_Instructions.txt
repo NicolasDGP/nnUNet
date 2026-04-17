@@ -1,0 +1,13 @@
+﻿You need:
+	- A folder containing the intracranial aneurysm dataset form kaggle
+	- The train.csv file from the dataset
+	- The train_localizers.csv file from the dataset
+
+The necessary command line arguments are the following (They all should use long flags, I.e double dashes). Make sure they are all present before running 
+
+--labels: The root of the train.csv file. NECESSARY
+--localizers: The root of the train_localizers.csv file. NECESSARY
+--series: The root of the folder containing the series of the dataset NECESSARY
+--numimages: The number of images you want. DEFAULTS TO all images
+--outfolder: The root of the folder where the preprocessed images are going to go. NECESSARY
+--radius: The radius of the spheres that are going to be created around the center of the aneurysms. DEFAULTS TO 6
