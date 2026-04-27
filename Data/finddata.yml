@@ -1,0 +1,17 @@
+name: finddata
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.12
+  - pip>=24
+  - pytorch=2.8.0
+  - pandas=3.0.1
+  - numpy=2.4.2
+  - matplotlib=3.10.8
+  - pydicom=3.0.1
+  - nibabel=5.4.0
+  - scipy=1.17.1
+  - pip:
+      - python-gdcm==3.2.2
+      - dicom2nifti==2.6.2
