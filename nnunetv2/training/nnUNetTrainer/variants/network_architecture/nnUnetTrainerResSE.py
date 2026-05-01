@@ -170,6 +170,15 @@ class nnUNetTrainerResSE(nnUNetTrainer):
     LAMBDA_CLS:  float = 0.5
     LAMBDA_MASK: float = 1.0
 
+    def __init__(self, plans, configuration, fold, dataset_json,
+                 unpack_dataset=True, device=torch.device('cuda')):
+        super().__init__(plans=plans,
+                         configuration=configuration,
+                         fold=fold,
+                         dataset_json=dataset_json,
+                         unpack_dataset=unpack_dataset,
+                         device=device)
+
     # ── build model ───────────────────────────────────────────────────────────
     def build_network_architecture(
         self,
